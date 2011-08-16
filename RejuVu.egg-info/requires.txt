@@ -1,0 +1,10 @@
+Pylons >= 1.0
+SQLAlchemy >= 0.5
+repoze.who
+repoze.who.plugins.sa
+repoze.who-friendlyform
+repoze.who-testutil
+ToscaWidgets >= 0.9.7.2
+tw.forms >= 0.9.7.2
+TurboMail >= 3.0b2
+WebFlash
