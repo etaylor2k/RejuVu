@@ -27,7 +27,7 @@ def init_model(engine, auto_schema_update=False):
     meta.engine = engine
 
 ## Non-reflected tables may be defined and mapped at module level
-user_table = sa.Table('user', meta.metadata,
+"""user_table = sa.Table('user', meta.metadata,
     sa.Column('id', sa.Integer, primary_key=True),
     sa.Column('user_name', sa.Unicode(USERNAME_SIZE), unique=True),
     sa.Column('email_address', sa.Unicode(255)),
@@ -56,19 +56,19 @@ class User(object):
                 setattr(self, key, value)
     
     def validate_password(self, password):
-        """The given password is hashed and compared against the one
-        stored in the database.  Returns True if they are equal, else
-        False.
+        # The given password is hashed and compared against the one
+        # stored in the database.  Returns True if they are equal, else
+        # False.
         
-        This method is called by repoze.who.plugins.sa.SQLAlchemyAuthenticatorPlugin
-        """
+        # This method is called by repoze.who.plugins.sa.SQLAlchemyAuthenticatorPlugin
+        
         hashed_password = self._hash_password(password)
         return self.password == hashed_password and self.activated
     
     def set_password(self, raw_pass):
-        """Set a new password for the account.  The raw password
-        will be stored in hashed form and will not be reversible.
-        """
+        # Set a new password for the account.  The raw password
+        # will be stored in hashed form and will not be reversible.
+        
         self.password = self._hash_password(raw_pass)
     
     def _hash_password(self, raw_pass):
@@ -83,7 +83,7 @@ orm.mapper(User, user_table,
         activation = sa.orm.relation(UserActivation, backref='user', uselist=False, cascade="all, delete, delete-orphan"),
     )
 )
-orm.mapper(UserActivation, user_activation_table)
+orm.mapper(UserActivation, user_activation_table)"""
 
 
 ## Classes for reflected tables may be defined here, but the table and
