@@ -8,8 +8,8 @@ import sqlalchemy as sa
 from sqlalchemy import orm
 
 from rejuvu.model import meta
-from user_level import UserLevel
-from user import User
+from user_level import UserLevels
+from user import Users
 
 USERNAME_SIZE=16
 

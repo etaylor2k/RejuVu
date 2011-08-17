@@ -1,16 +1,17 @@
-from sqlalchemy import Column
-from sqlalchemy.types inport String, Text
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy.types import String, Text
 from sqlalchemy.dialects.postgresql import *
+from sqlalchemy.orm import relation
 
 from rejuvu.model.meta import Base
-from user_level import UserLevel
+from user_level import UserLevels
 
 from datetime import datetime
 import hashlib
 
 __author__ = "Endris Taylor"
 
-class Users(Base:
+class Users(Base):
     __tablename__ ="users"
 
     #Class attributes reporesenting columns from the users table
