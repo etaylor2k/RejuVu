@@ -4,7 +4,7 @@ from sqlalchemy.dialects.postgresql import *
 from sqlalchemy.orm import relation
 
 from rejuvu.model.meta import Base
-from user_level import UserLevel
+from user_levels import UserLevels
 
 from datetime import datetime
 import hashlib
@@ -19,8 +19,8 @@ class Users(Base):
     email = Column('email', VARCHAR(255))
     username = Column('username', VARCHAR(25))
 
-    level = Column(INTEGER, ForeignKey('userlevel.ulid'))
-    userlevel = relation('UserLevel')
+    level = Column(INTEGER, ForeignKey('userlevels.ulid'))
+    userlevels = relation('UserLevels')
     
     password = Column('password', VARCHAR(128))
     displayname = Column('displayname', VARCHAR(255))
