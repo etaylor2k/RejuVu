@@ -11,7 +11,7 @@ import hashlib
 
 __author__ = "Endris Taylor"
 
-class User(Base):
+class Users(Base):
     __tablename__ ="users"
 
     #Class attributes reporesenting columns from the users table
