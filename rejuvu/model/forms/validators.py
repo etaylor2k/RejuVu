@@ -21,7 +21,7 @@ from formencode.compound import All, Any
 #   these validators can be used outside of a ToscaWidgets environment.
 # import tw.forms
 
-from rejuvu.model import User, USERNAME_SIZE
+from rejuvu.model import Users, USERNAME_SIZE
 
 
 USERNAME_MIN_LENGTH=4
