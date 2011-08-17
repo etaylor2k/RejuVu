@@ -4,14 +4,14 @@ from sqlalchemy.dialects.postgresql import *
 from sqlalchemy.orm import relation
 
 from rejuvu.model.meta import Base
-from user_level import UserLevels
+from user_level import UserLevel
 
 from datetime import datetime
 import hashlib
 
 __author__ = "Endris Taylor"
 
-class Users(Base):
+class User(Base):
     __tablename__ ="users"
 
     #Class attributes reporesenting columns from the users table

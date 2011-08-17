@@ -6,7 +6,7 @@ from rejuvu.model.meta import Base
 
 __author__ = "Endris Taylor"
 
-class UserLevels(Base):
+class UserLevel(Base):
     __tablename__ = "user_levels"
 
     ulid = Column('ulid', INTEGER, primary_key=True)
