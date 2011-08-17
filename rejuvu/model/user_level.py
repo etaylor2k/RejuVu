@@ -17,4 +17,4 @@ class UserLevel(Base):
 
     def __repr__(self):
     # Representaion
-        return "<UserLevel('%s')" %self.name
+        return "<UserLevel('%s')>" %self.name
