@@ -13,6 +13,7 @@ from users import Users
 from debtors import Debtors
 from clients import Clients
 from user_debtors import UserDebtors
+from transactions import Transactions
 
 
 USERNAME_SIZE=16
