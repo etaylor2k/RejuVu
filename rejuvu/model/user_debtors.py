@@ -10,7 +10,7 @@ from debtors import Debtors
 
 __author__ = "Endris Taylor"
 
-class Debtors(Base):
+class UserDebtors(Base):
     __tablename__ ="user_debtors"
 
     #Class attributes reporesenting columns from the users table
@@ -28,25 +28,4 @@ class Debtors(Base):
             setattr(self, key, value)
 
     def __repr__(self):
-        return "<Debtors('%s')>" %self.username
-
-
-    def validate_password(self, password):
-        """The given password is hashed and compared against the one
-        stored in the database.  Returns True if they are equal, else
-        False.
-
-        This method is called by repoze.who.plugins.sa.SQLAlchemyAuthenticatorPlugin
-        """
-        hashed_password = self._hash_password(password)
-        return self.password == hashed_password and self.activated
-
-    def set_password(self, raw_pass):
-        """Set a new password for the account.  The raw password
-        will be stored in hashed form and will not be reversible.
-        """
-        self.password = self._hash_password(raw_pass)
-
-    def _hash_password(self, raw_pass):
-        return hashlib.sha512(raw_pass).hexdigest()
-
+        return "<UserDebtors('%s')>" %self.user_debtor_id
