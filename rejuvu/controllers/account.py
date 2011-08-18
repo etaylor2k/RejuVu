@@ -10,8 +10,8 @@ import tw.forms
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
-from rejuvu.model import User
-from rejuvu.model import UserActivation
+from rejuvu.model import Users
+#from rejuvu.model import UserActivation
 from rejuvu.model.forms.build import RegisterUserForm
 from rejuvu.model.meta import Session
 
@@ -55,14 +55,14 @@ class AccountController(BaseController):
                 c.form_error = e.error_dict or {}
             else:
                 # Create the new account in database
-                user = User(
-                    user_name = params['user_name'],
-                    email_address = params['email_address'],
-                    display_name = params['display_name'],
+                users = Users(
+                    username = params['user_name'],
+                    email = params['email_address'],
+                    displayname = params['display_name'],
                     password = params['password'],
                     activated = False,
                 )
-                Session.add(user)
+                Session.add(users)
                 activation = UserActivation()
                 activation.user = user
                 key_seed = "%s%s%s" %(user.user_name, user.email_address, datetime.now().ctime())
@@ -81,7 +81,7 @@ class AccountController(BaseController):
                 )
                 
                 from turbomail import Message
-                message = Message("from@example.com", user.email_address, "Welcome to RejuVu")
+                message = Message("from@example.com", user.email, "Welcome to RejuVu")
                 message.plain = "Your RejuVu account is ready to use. Your username is '%s'.  Activate your account at %s" %(user.user_name, activation_url)
                 message.send()
                 Session.commit()
@@ -107,7 +107,7 @@ class AccountController(BaseController):
                         success = True
         
         if success:
-            h.flash_ok(u"Your account has been activated.  You may now login with username '%s'" %(user.user_name))
+            h.flash_ok(u"Your account has been activated.  You may now login with username '%s'" %(users.user_name))
         else:
             h.flash_alert(u"Activation failed. The specified username or key may not be correct.")
         
