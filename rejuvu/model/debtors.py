@@ -33,7 +33,7 @@ class Debtors(Base):
             setattr(self, key, value)
 
     def __repr__(self):
-        return "<Users('%s')>" %self.username
+        return "<Debtors('%s')>" %self.username
 
 
     def validate_password(self, password):

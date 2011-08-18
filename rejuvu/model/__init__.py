@@ -10,6 +10,9 @@ from sqlalchemy import orm
 from rejuvu.model import meta
 from user_levels import UserLevels
 from users import Users
+from debtors import Debtors
+from clients import Clients
+
 
 USERNAME_SIZE=16
 
