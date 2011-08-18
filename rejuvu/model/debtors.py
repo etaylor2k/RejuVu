@@ -4,6 +4,7 @@ from sqlalchemy.dialects.postgresql import *
 from sqlalchemy.orm import relation
 
 from rejuvu.model.meta import Base
+from clients import Clients
 
 __author__ = "Endris Taylor"
 

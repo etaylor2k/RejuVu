@@ -12,6 +12,7 @@ from user_levels import UserLevels
 from users import Users
 from debtors import Debtors
 from clients import Clients
+from user_debtors import UserDebtors
 
 
 USERNAME_SIZE=16
