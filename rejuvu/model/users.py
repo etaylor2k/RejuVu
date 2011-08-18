@@ -24,7 +24,7 @@ class Users(Base):
     
     password = Column('password', VARCHAR(128))
     displayname = Column('displayname', VARCHAR(255))
-    created = Column('created', TIMESTAMP)
+    created = Column('created', TIMESTAMP, default=datetime.now)
     activated = Column('activated', BOOLEAN)
     key = Column('key', VARCHAR(64))
 
