@@ -25,7 +25,7 @@ class UserDebtors(Base):
 
     def __init__(self, **kwargs):
         for key,value in kwargs.items():
-            setattr(self, key, int(value)
+            setattr(self, key, int(value))
 
     def __repr__(self):
         return "<UserDebtors('%s')>" %self.user_debtor_id

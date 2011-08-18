@@ -6,6 +6,8 @@ from sqlalchemy.orm import relation
 from rejuvu.model.meta import Base
 from debtors import Debtors
 
+from datetime import datetime
+
 __author__ = "Endris Taylor"
 
 class Transactions(Base):
@@ -13,7 +15,7 @@ class Transactions(Base):
 
     #Class attributes reporesenting columns from the users table
     trans_id = Column('trans_id', INTEGER, primary_key=True)
-    amount = Column('amount', MONEY)
+    amount = Column('amount', FLOAT)
     date = Column('date', TIMESTAMP, default=datetime.now)
 
     debtor = Column(INTEGER, ForeignKey('debtors.debtorid'))

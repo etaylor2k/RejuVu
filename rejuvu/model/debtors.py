@@ -14,12 +14,12 @@ class Debtors(Base):
     #Class attributes reporesenting columns from the users table
     debtorid = Column('debtorid', INTEGER, primary_key=True)
     ref_num = Column('ref_num', VARCHAR(255))
-    principle = Column('princible', MONEY)
-    interest = Column('interest', MONEY)
-    commission = Column('commission', MONEY)
-    collected_principle = Column('collected_princible', MONEY)
-    collected_interest = Column('collected_interest', MONEY)
-    collected_commission = Column('collected_commission', MONEY)
+    principle = Column('princible', FLOAT)
+    interest = Column('interest', FLOAT)
+    commission = Column('commission', FLOAT)
+    collected_principle = Column('collected_princible', FLOAT)
+    collected_interest = Column('collected_interest', FLOAT)
+    collected_commission = Column('collected_commission', FLOAT)
 
     client = Column(INTEGER, ForeignKey('clients.client_id'))
     clients = relation('Clients')
