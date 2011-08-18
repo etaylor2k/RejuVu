@@ -4,10 +4,6 @@ from sqlalchemy.dialects.postgresql import *
 from sqlalchemy.orm import relation
 
 from rejuvu.model.meta import Base
-from user_levels import UserLevels
-
-from datetime import datetime
-import hashlib
 
 __author__ = "Endris Taylor"
 
