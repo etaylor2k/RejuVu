@@ -19,8 +19,8 @@ class Users(Base):
     email = Column('email', VARCHAR(255))
     username = Column('username', VARCHAR(25))
 
-    level = Column(INTEGER, ForeignKey('userlevels.ulid'))
-    userlevels = relation('UserLevels')
+    level = Column(INTEGER, ForeignKey('user_levels.ulid'))
+    user_levels = relation('UserLevels')
     
     password = Column('password', VARCHAR(128))
     displayname = Column('displayname', VARCHAR(255))
