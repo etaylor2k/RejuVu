@@ -65,7 +65,7 @@ class AccountController(BaseController):
                 Session.add(users)
                 activation = UserActivation()
                 activation.user = user
-                key_seed = "%s%s%s" %(user.user_name, user.email_address, datetime.now().ctime())
+                key_seed = "%s%s%s" %(user.username, user.email_address, datetime.now().ctime())
                 activation.key = hashlib.sha512(key_seed).hexdigest()   # psuedo-random hashed key
                 Session.add(activation)
                 
@@ -76,13 +76,13 @@ class AccountController(BaseController):
                 activation_url = "%s%s?u=%s&key=%s" %(
                     http_server,
                     url(controller='account', action='activation'),
-                    quote(user.user_name),
+                    quote(user.username),
                     quote(activation.key)
                 )
                 
                 from turbomail import Message
                 message = Message("from@example.com", user.email, "Welcome to RejuVu")
-                message.plain = "Your RejuVu account is ready to use. Your username is '%s'.  Activate your account at %s" %(user.user_name, activation_url)
+                message.plain = "Your RejuVu account is ready to use. Your username is '%s'.  Activate your account at %s" %(user.username, activation_url)
                 message.send()
                 Session.commit()
                 h.flash_info(u"A confirmation email has been sent to %s containing a link to activate your account." %(user.email_address,))
@@ -94,9 +94,9 @@ class AccountController(BaseController):
     def activation(self):
         success = False
         
-        user_name = request.params.get('u')
-        if user_name:
-            user = Session.query(User).filter_by(user_name=user_name).first()
+        username = request.params.get('u')
+        if username:
+            user = Session.query(User).filter_by(username=username).first()
             if user is not None:
                 key = request.params.get('key')
                 if key and user.activation:
@@ -107,7 +107,7 @@ class AccountController(BaseController):
                         success = True
         
         if success:
-            h.flash_ok(u"Your account has been activated.  You may now login with username '%s'" %(users.user_name))
+            h.flash_ok(u"Your account has been activated.  You may now login with username '%s'" %(users.username))
         else:
             h.flash_alert(u"Activation failed. The specified username or key may not be correct.")
         

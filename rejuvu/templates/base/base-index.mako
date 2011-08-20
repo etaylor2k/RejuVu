@@ -15,7 +15,7 @@
     <a href="${url('/')}"><div id="header_logo"></div></a>
     <div id="user_login">
     % if h.user():
-        ${h.user().display_name or h.user().user_name}.
+        ${h.user().displayname or h.user().username}.
         <a href="/account/logout">Logout</a> 
     % else:
       <a href="/account/register">Register</a> |

@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 5
-_modified_time = 1313453921.279294
+_modified_time = 1313864726.590102
 _template_filename=u'/Users/endristaylor/Repo/RejuVu/rejuvu/templates/base/base-index.mako'
 _template_uri=u'/base/base-index.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
@@ -37,7 +37,7 @@ def render_body(context,**pageargs):
         if h.user():
             # SOURCE LINE 18
             __M_writer(u'        ')
-            __M_writer(escape(h.user().display_name or h.user().user_name))
+            __M_writer(escape(h.user().display_name or h.user().username))
             __M_writer(u'.\n        <a href="/account/logout">Logout</a> \n')
             # SOURCE LINE 20
         else:
