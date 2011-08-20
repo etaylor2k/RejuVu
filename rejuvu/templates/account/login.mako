@@ -11,6 +11,7 @@
 <div class="login">
 
 <form action="/account/dologin" method="POST">
+  ${h.flash.render("flash_container")|n}
 <table width="50%" border="0" cellspacing="5" cellpadding="0" align="center">
   <tr>
     <td>Username</td>

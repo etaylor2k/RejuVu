@@ -49,7 +49,7 @@ class UniqueUsername(formencode.FancyValidator):
         that can be used to access the database.
         """
         if state is not None and hasattr(state, 'session'):
-            acct = state.session.query(User).filter_by(username=value).first()
+            acct = state.session.query(Users).filter_by(username=value).first()
             if acct is not None:
                 raise formencode.Invalid(self.message("username_taken", state), value, state)
         
@@ -78,7 +78,7 @@ class UniqueEmail(formencode.FancyValidator):
         that can be used to access the database.
         """
         if state is not None and hasattr(state, 'session'):
-            acct = state.session.query(User).filter_by(email_address=value).first()
+            acct = state.session.query(Users).filter_by(email=value).first()
             if acct is not None:
                 raise formencode.Invalid(self.message("email_taken", state), value, state)
         

@@ -254,3 +254,38 @@ p {
 	margin:15px auto 0px;
 	background-color:#f2bf49;
 }
+
+/* WebFlash Styles */
+
+#flash_container div.ok {
+  margin: 0.5em auto 0.5em auto;
+  padding: 15px 10px 15px 55px;
+  width: 450px;
+  background: #cec URL('../images/flash_ok.png') left center no-repeat;
+  border: 1px solid #9c9;
+  font-size: 120%;
+  font-weight: bolder;
+  clear: both;
+}
+
+#flash_container div.info {
+  margin: 0.5em auto 0.5em auto;
+  padding: 15px 10px 15px 55px;
+  width: 450px;
+  background: #eef URL('../images/flash_info.png') left center no-repeat;
+  border: 1px solid #99c;
+  font-size: 120%;
+  font-weight: bolder;
+  clear: both;
+}
+
+#flash_container div.alert {
+  margin: 0.5em auto 0.5em auto;
+  padding: 15px 10px 15px 55px;
+  width: 450px;
+  background: #fd9393 URL('../images/flash_alert.png') left center no-repeat;
+  border: 1px solid #e11;
+  font-size: 120%;
+  font-weight: bolder;
+  clear: both;
+}

@@ -10,8 +10,7 @@ import tw.forms
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
-from rejuvu.model import Users
-#from rejuvu.model import UserActivation
+from rejuvu.model import Users, UserLevels
 from rejuvu.model.forms.build import RegisterUserForm
 from rejuvu.model.meta import Session
 
@@ -86,6 +85,7 @@ class AccountController(BaseController):
         c.register_user_form = register_user_form
         
         return render('/account/register.mako')
+
     def activation(self):
         success = False
         
@@ -107,3 +107,15 @@ class AccountController(BaseController):
             h.flash_alert(u"Activation failed. The specified username or key may not be correct.")
         
         redirect("/account/login")
+
+    def index(self):
+    # This function is called after the  login has been visited
+        c.user = h.user()
+
+        if c.user is None:
+
+            h.flash_alert(u"Login Failed. Please try again.")
+            return render('/account/login.mako')
+
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+        return render('home.mako')

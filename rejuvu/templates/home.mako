@@ -2,31 +2,126 @@
 
 <%def name="title()">Home</%def>
 
-<h1>
-  Welcome to RejuVu.
-</h1>
-
-<div>
-  <p>
-    This <a href="http://pylonshq.com/">Pylons</a> application was created by <a href="http://bitbucket.org/chrismiles/blastoff/">BlastOff</a>.
-    It was configured with the following options:
-    <ul>
-      <li> Email Confirmation - users must confirm their email address before new accounts are activated. </li>
-    </ul>
-  </p>
-</div>
-
-<%def name="rightcontent()">
-  This project has the following dependencies:
-  <ul>
-    <li> <a href="http://pylonshq.com/">Pylons &gt;= 0.9.7</a> </li>
-    <li> <a href="http://www.sqlalchemy.org/">SQLAlchemy &gt;= 0.5</a> </li>
-    <li> <a href="http://pypi.python.org/pypi/repoze.who">repoze.who</a> </li>
-    <li> <a href="http://pypi.python.org/pypi/repoze.who.plugins.sa">repoze.who.plugins.sa</a> </li>
-    <li> <a href="http://pypi.python.org/pypi/repoze.who-friendlyform">repoze.who-friendlyform</a> </li>
-    <li> <a href="http://toscawidgets.org/">ToscaWidgets</a> </li>
-    <li> <a href="http://toscawidgets.org/documentation/tw.forms/">tw.forms</a> </li>
-    <li> <a href="http://www.python-turbomail.org/wiki/3.0/BetaRelease2">TurboMail &gt;= 3.0b2</a> </li>
-    <li> <a href="http://python-rum.org/wiki/WebFlash">WebFlash</a> </li>
-  </ul>
-</%def>
+<div class="contentleft" style="padding-top:30px">
+                	<div class="lefttop"><img src="images/personal-info.png" /></div>
+                    <div class="leftmiddle">
+                    <center><form><table width="93%" cellspacing="0">
+  <tr>
+    <td width="50%">Name</td>
+    <td width="50%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="name" type="text" value="First M. Last" size="40" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>User Level</td>
+  </tr>
+  <tr>
+    <td><input name="username" type="text" value="user_name1" size="18" /></td>
+    <td><input name="userlevel" type="text" value="level" size="18" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="email" type="text" value="email@host.com" size="40" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="address" type="text" value="1234 Address Street" size="40" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="city" type="text" value="City" size="40" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td>Zip Code</td>
+  </tr>
+  <tr>
+    <td><input name="state" type="text" value="State" size="18" /></td>
+    <td><input name="zip" type="text" value="77777" size="18" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="14"></td>
+  </tr>
+  <tr>
+    <td><input name="submit" type="submit" value="Submit Changes" /></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+                    </form></center>
+                    </div>
+                    <div class="leftbottom"></div>
+                </div>
+                <div class="contentright"><img src="images/pic.jpg" align="right" /></div>
+                <div class="contentright" style="padding-top:10px">
+                	<div class="righttop"><img src="images/change-password.png" /></div>
+                    <div class="rightmiddle" style="padding-top:20px">
+                    <center><form>
+                    <table width="100%" cellspacing="0">
+  <tr>
+    <td>Old Password</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td>New Password</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="3px"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Re-enter New Password</td>
+  </tr>
+  <tr>
+    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" height="14"></td>
+  </tr>
+  <tr>
+    <td width="47%"><input name="submit2" type="submit" value="Submit Changes" /></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+                    </form></center>
+                    </div>
+                    <div class="rightbottom"></div></div>
+                <div class="clear"></div>
+          	</div>
+            <div class="nav"><a href="user.html"><img src="images/user-ovr.jpg" alt="User" name="user" id="user" border="0" /></a></div>
+          <div class="nav"><a href="client.html"><img src="images/client.jpg" alt="Client" name="client" id="client" onmouseover="MM_swapImage('client','','images/client-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
+            <div class="nav"><a href="reports.html"><img src="images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
