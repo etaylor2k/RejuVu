@@ -1,151 +1,256 @@
-html {
-  margin: 0px 0px 0px 0px;
-}
+@charset "UTF-8";
+/* CSS Document */
 
 body {
-  margin: 0px 0px 0px 0px;
-  font-size: 90%;
-  font-family: arial, helvetica, sans-serif;
-  background-color: #E6EEEF;
-  width: 100%;
+	background-color:#f2bf49;
+	margin:0px auto;
 }
 
-#header {
-  background-color: #fff;
-  position: relative;
-  width: 100%;
-  height: 50px;
+p {
+	font-family:Optima;
 }
 
-#header_logo {
-  background: #fff URL('/images/BlastOff-header.png ') left center no-repeat;
-  float: left;
-  height: 50px;
-  width: 320px;
-  margin-left: 10px;
+
+.wrapper {
+	width:950px;
+	min-height:681px;
+	margin:0 auto;
+	background-color:#FFFFFF;
 }
 
-#user_login {
-  position: absolute;
-  right: 0px;
-  bottom: 7px;
-  margin-right: 10px;
-  font-size: 85%;
+.header {
+	width:950px;
 }
 
-#maincontent {
-  float:left;
-  width:67%;
-  border-right:2px solid rgb(141, 179, 180);
-/*  border-bottom:2px solid #000;*/
-  margin-right:15px;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-bottom:20px;
-  min-height: 500px;
+.headerlft {
+	width:635px;
+	float:left;
+	padding:10px 0 10px 10px;
 }
 
-#rightcontent {
-  padding-top: 10px;
+.headerrt {
+	float:left;
+	padding:5px;
+	background-color:#003f74;
+	margin-top:-5px;
 }
 
-#rightcontent ul {
-  list-style: none;
+.clear {
+	clear:both;
 }
 
-#footer {
-  clear: both;
-  font-size: 80%;
-  text-align: center;
-  color: #aaa;
-  padding-top: 20px;
+.main {
+	width:645px;
+	height:500px;
+	background-image:url(images/bg-color.jpg);
+	background-repeat:repeat;
+	background-position:top left;
+	float:right;
+	color:#003f74;
+	font-family:Optima;
+	font-size:14px;
 }
 
-#footer a:link, #footer a:visited {
-  color: #aaa;
-  text-decoration: none;
+
+.mainwrap {
+	width:733px;
+	margin:0 50px 50px 65px;
 }
 
-#nav_strip {
-  clear: both;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  background: rgb(141, 179, 180);
-  font-size: 90%;
+.nav {
+	width:88px;
+	padding-top:10px;
+	float:right;
 }
 
-#nav_strip ul {
-  display: inline;
+.top {
+	width:950px;
+	height:5px;
+	background-color:#003f74;
 }
 
-#nav_strip li {
-  display: inline;
-  margin-left: 5px;
-  margin-right: 5px;
+.footer {
+	width:930px;
+	height:10px;
+	padding:10px;
+	background-color:#003f74;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-size:11px;
+	text-align:center;
+	vertical-align:middle;
 }
 
-#nav_strip li a {
-  padding: 2px 4px 2px 4px;
+.middle {
+	width:350px;
+	float:right;
+	text-align:center;
+	color:#003f74;
+	margin-top:-15px;
+	font-family:Optima;
+	line-height:8px;
+	padding:30px 0 10px 0;
 }
 
-#nav_strip a:link
-{
-	color: #043435;
-	background-color: transparent;
-	text-decoration: none;
+.contentleft {
+	width:330px;
+	padding:45px 18px;
+	float:left;
 }
 
-#nav_strip a:visited
-{
-	color: #0F5557;
-	background-color: transparent;
-	text-decoration: none;
+.contentright {
+	width:255px;
+	padding:35px 20px 0 0;
+	float:left;
 }
 
-#nav_strip a:hover, #nav_strip a:active
-{
-	color: #fff;
-	background-color: #084C4E;
+.lefttop {
+	width:305px;
+	padding-left:25px;
+	background-image:url(images/personalinfo-bg-top.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
-div.clearingdiv {
-  clear:both;
+.leftmiddle {
+	width:300px;
+	min-height:382px;
+	padding:15px;
+	margin-top:-5px;
+	background-image:url(images/personalinfo-bg-middle.jpg);
+	background-repeat:repeat-y;
+	background-position:center;
+	font-family:Optima;
+	font-size:14px;
+	color:#003f74;
 }
 
-/* WebFlash Styles */
-
-#flash_container div.ok {
-  margin: 0.5em auto 0.5em auto;
-  padding: 15px 10px 15px 55px;
-  width: 450px;
-  background: #cec URL('../images/flash_ok.png') left center no-repeat;
-  border: 1px solid #9c9;
-  font-size: 120%;
-  font-weight: bolder;
-  clear: both;
+.leftbottom {
+	width:330px;
+	height:3px;
+	background-image:url(images/personalinfo-bg-bottom.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
-#flash_container div.info {
-  margin: 0.5em auto 0.5em auto;
-  padding: 15px 10px 15px 55px;
-  width: 450px;
-  background: #eef URL('../images/flash_info.png') left center no-repeat;
-  border: 1px solid #99c;
-  font-size: 120%;
-  font-weight: bolder;
-  clear: both;
+.righttop {
+	width:240px;
+	padding-left:20px;
+	background-image:url(images/changepw-bg-top.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
-#flash_container div.alert {
-  margin: 0.5em auto 0.5em auto;
-  padding: 15px 10px 15px 55px;
-  width: 450px;
-  background: #fd9393 URL('../images/flash_alert.png') left center no-repeat;
-  border: 1px solid #e11;
-  font-size: 120%;
-  font-weight: bolder;
-  clear: both;
+.rightmiddle {
+	width:240px;
+	min-height:275px;
+	padding:10px;
+	margin-top:-5px;
+	background-image:url(images/changepw-bg-middle.jpg);
+	background-repeat:repeat-y;
+	background-position:center;
+	font-family:Optima;
+	font-size:14px;
+	color:#003f74;
+}
+
+.rightbottom {
+	width:260px;
+	height:3px;
+	background-image:url(images/changepw-bg-bottom.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.login {
+	width:360px;
+	vertical-align:middle;
+	margin:150px auto;
+}
+
+.contact {
+	width:360px;
+	vertical-align:middle;
+	margin:80px auto;
+}
+.undersearch {
+	font-family:Optima;
+	font-size:10px;
+	width:215px;
+	float:left;
+	text-align:center;
+	color:#999;
+}
+
+.undersearch a {
+	color:#999;
+}
+
+.left {
+	width:300px;
+	min-height:382px;
+	padding:15px;
+	font-family:Optima;
+	font-size:14px;
+	color:#003f74;
+	vertical-align:middle;
+	text-align:center;
+}
+
+.admintop {
+	width:237px;
+	padding-left:23px;
+	background-image:url(images/admin-bg-top.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.adminmiddle {
+	width:240px;
+	min-height:275px;
+	padding:10px;
+	margin-top:-5px;
+	background-image:url(images/admin-bg-middle.jpg);
+	background-repeat:repeat-y;
+	background-position:center;
+	font-family:Optima;
+	font-size:14px;
+	color:#003f74;
+}
+
+.adminbottom {
+	width:260px;
+	height:3px;
+	background-image:url(images/admin-bg-bottom.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.righttopreports {
+	width:240px;
+	padding-left:20px;
+	background-image:url(images/report-bg-top.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.title {
+	width:100px;
+	font-family:Optima;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	color:#003f74;
+	margin-top:-10px;
+	background-image:url(images/bg-color.jpg);
+	background-position:top left;
+	background-repeat:repeat;
+}
+
+.topbar {
+	width:595px;
+	height:3px;
+	text-align:center;
+	margin:15px auto 0px;
+	background-color:#f2bf49;
 }

@@ -15,6 +15,11 @@ class HomeController(BaseController):
         # h.flash_alert("Flash an Alert!")
         # h.flash_info("Flash an Info")
         # h.flash_ok("Flash an OK")
-                
+
+        c.user =h.user() # checks for the identity of the user if there
+
+        if c.user is None:
+            return render('/account/login.mako')
+        
         return render('/home.mako')
     

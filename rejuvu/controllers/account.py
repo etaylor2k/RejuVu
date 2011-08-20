@@ -63,11 +63,6 @@ class AccountController(BaseController):
                     activated = False,
                 )
                 Session.add(users)
-                activation = UserActivation()
-                activation.user = user
-                key_seed = "%s%s%s" %(user.username, user.email_address, datetime.now().ctime())
-                activation.key = hashlib.sha512(key_seed).hexdigest()   # psuedo-random hashed key
-                Session.add(activation)
                 
                 http_server = request.environ.get('HTTP_ORIGIN')
                 if not http_server:
