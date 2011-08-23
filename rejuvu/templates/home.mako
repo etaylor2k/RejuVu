@@ -3,7 +3,7 @@
 <%def name="title()">Home</%def>
 
 <div class="contentleft" style="padding-top:30px">
-                	<div class="lefttop"><img src="images/personal-info.png" /></div>
+                	<div class="lefttop"><img src="/images/personal-info.png" /></div>
                     <div class="leftmiddle">
                     <center><form><table width="93%" cellspacing="0">
   <tr>
@@ -77,9 +77,9 @@
                     </div>
                     <div class="leftbottom"></div>
                 </div>
-                <div class="contentright"><img src="images/pic.jpg" align="right" /></div>
+                <div class="contentright"><img src="/images/pic.jpg" align="right" /></div>
                 <div class="contentright" style="padding-top:10px">
-                	<div class="righttop"><img src="images/change-password.png" /></div>
+                	<div class="righttop"><img src="/images/change-password.png" /></div>
                     <div class="rightmiddle" style="padding-top:20px">
                     <center><form>
                     <table width="100%" cellspacing="0">
@@ -122,6 +122,7 @@
                     <div class="rightbottom"></div></div>
                 <div class="clear"></div>
           	</div>
-            <div class="nav"><a href="user.html"><img src="images/user-ovr.jpg" alt="User" name="user" id="user" border="0" /></a></div>
-          <div class="nav"><a href="client.html"><img src="images/client.jpg" alt="Client" name="client" id="client" onmouseover="MM_swapImage('client','','images/client-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
-            <div class="nav"><a href="reports.html"><img src="images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
+            <div class="nav"><a href="user.html"><img src="/images/user-ovr.jpg" alt="User" name="user" id="user" border="0" /></a></div>
+          <div class="nav"><a href="client.html"><img src="/images/client.jpg" alt="Client" name="client" id="client" onmouseover="MM_swapImage('client','','images/client-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
+            <div class="nav"><a href="reports.html"><img src="/images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
+            <div>

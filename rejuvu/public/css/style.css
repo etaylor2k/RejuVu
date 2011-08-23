@@ -42,7 +42,7 @@ p {
 .main {
 	width:645px;
 	height:500px;
-	background-image:url(images/bg-color.jpg);
+	background-image:url(../images/bg-color.jpg);
 	background-repeat:repeat;
 	background-position:top left;
 	float:right;
@@ -107,7 +107,7 @@ p {
 .lefttop {
 	width:305px;
 	padding-left:25px;
-	background-image:url(images/personalinfo-bg-top.jpg);
+	background-image:url(../images/personalinfo-bg-top.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -117,7 +117,7 @@ p {
 	min-height:382px;
 	padding:15px;
 	margin-top:-5px;
-	background-image:url(images/personalinfo-bg-middle.jpg);
+	background-image:url(../images/personalinfo-bg-middle.jpg);
 	background-repeat:repeat-y;
 	background-position:center;
 	font-family:Optima;
@@ -128,7 +128,7 @@ p {
 .leftbottom {
 	width:330px;
 	height:3px;
-	background-image:url(images/personalinfo-bg-bottom.jpg);
+	background-image:url(../images/personalinfo-bg-bottom.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -136,7 +136,7 @@ p {
 .righttop {
 	width:240px;
 	padding-left:20px;
-	background-image:url(images/changepw-bg-top.jpg);
+	background-image:url(../images/changepw-bg-top.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -146,7 +146,7 @@ p {
 	min-height:275px;
 	padding:10px;
 	margin-top:-5px;
-	background-image:url(images/changepw-bg-middle.jpg);
+	background-image:url(../images/changepw-bg-middle.jpg);
 	background-repeat:repeat-y;
 	background-position:center;
 	font-family:Optima;
@@ -157,7 +157,7 @@ p {
 .rightbottom {
 	width:260px;
 	height:3px;
-	background-image:url(images/changepw-bg-bottom.jpg);
+	background-image:url(../images/changepw-bg-bottom.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -200,7 +200,7 @@ p {
 .admintop {
 	width:237px;
 	padding-left:23px;
-	background-image:url(images/admin-bg-top.jpg);
+	background-image:url(../images/admin-bg-top.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -210,7 +210,7 @@ p {
 	min-height:275px;
 	padding:10px;
 	margin-top:-5px;
-	background-image:url(images/admin-bg-middle.jpg);
+	background-image:url(../images/admin-bg-middle.jpg);
 	background-repeat:repeat-y;
 	background-position:center;
 	font-family:Optima;
@@ -221,7 +221,7 @@ p {
 .adminbottom {
 	width:260px;
 	height:3px;
-	background-image:url(images/admin-bg-bottom.jpg);
+	background-image:url(../images/admin-bg-bottom.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -229,7 +229,7 @@ p {
 .righttopreports {
 	width:240px;
 	padding-left:20px;
-	background-image:url(images/report-bg-top.jpg);
+	background-image:url(../images/report-bg-top.jpg);
 	background-repeat:no-repeat;
 	background-position:center;
 }
@@ -242,7 +242,7 @@ p {
 	text-align:center;
 	color:#003f74;
 	margin-top:-10px;
-	background-image:url(images/bg-color.jpg);
+	background-image:url(../images/bg-color.jpg);
 	background-position:top left;
 	background-repeat:repeat;
 }
