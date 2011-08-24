@@ -11,7 +11,7 @@
     <td width="50%">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="name" type="text" value="First M. Last" size="40" /></td>
+    <td colspan="2"><input name="name" type="text" value="${c.user.displayname}" size="40" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -21,8 +21,8 @@
     <td>User Level</td>
   </tr>
   <tr>
-    <td><input name="username" type="text" value="user_name1" size="18" /></td>
-    <td><input name="userlevel" type="text" value="level" size="18" /></td>
+    <td><input name="username" type="text" value="${c.user.username}" size="18" /></td>
+    <td><input name="userlevel" type="text" value="${c.user_level.name}" size="18" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -32,7 +32,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="email" type="text" value="email@host.com" size="40" /></td>
+    <td colspan="2"><input name="email" type="text" value="${c.user.email}" size="40" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
