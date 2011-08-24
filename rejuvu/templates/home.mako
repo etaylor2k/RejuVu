@@ -11,7 +11,7 @@
     <td width="50%">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="name" type="text" value="${c.user.displayname}" size="40" /></td>
+    <td colspan="2"><input name="name" type="text" value="${c.user.name}" size="40" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -42,7 +42,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="address" type="text" value="1234 Address Street" size="40" /></td>
+    <td colspan="2"><input name="address" type="text" value="${c.user.address}" size="40" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -52,7 +52,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="city" type="text" value="City" size="40" /></td>
+    <td colspan="2"><input name="city" type="text" value="${c.user.city}" size="40" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -62,8 +62,8 @@
     <td>Zip Code</td>
   </tr>
   <tr>
-    <td><input name="state" type="text" value="State" size="18" /></td>
-    <td><input name="zip" type="text" value="77777" size="18" /></td>
+    <td><input name="state" type="text" value="${c.user.state}" size="18" /></td>
+    <td><input name="zip" type="text" value="${c.user.zip}" size="18" /></td>
   </tr>
   <tr>
     <td colspan="2" height="14"></td>

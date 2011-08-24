@@ -23,7 +23,11 @@ class Users(Base):
     user_levels = relation('UserLevels')
     
     password = Column('password', VARCHAR(128))
-    displayname = Column('displayname', VARCHAR(255))
+    name = Column('name', VARCHAR(255))
+    address = Column('address', VARCHAR(255))
+    city = Column('city', VARCHAR(255))
+    state = Column('state', VARCHAR(100))
+    zip = Column('zip', VARCHAR(10))
     created = Column('created', TIMESTAMP, default=datetime.now)
     activated = Column('activated', BOOLEAN)
     key = Column('key', VARCHAR(64))
