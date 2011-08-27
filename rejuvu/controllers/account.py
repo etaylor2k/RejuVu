@@ -46,7 +46,7 @@ class AccountController(BaseController):
         
         return render('/account/login.mako')
     
-    def register(self):
+    def register(self, userlevel):
         if request.method == 'POST':
             state = State()
             state.session = Session
@@ -56,12 +56,15 @@ class AccountController(BaseController):
                 c.form_error = e.error_dict or {}
             else:
                 # Create the new account in database
+                if userlevel =="":
+                    userlevel =1
                 users = Users(
                     username = params['user_name'],
                     email = params['email_address'],
                     displayname = params['display_name'],
                     password = params['password'],
                     activated = False,
+                    level =1
                 )
                 Session.add(users)
                 
@@ -147,3 +150,31 @@ class AccountController(BaseController):
             h.flash_info("Error - Sorry no such account exists or registered")
 
         return render('/index.mako')
+
+    def  updatePassword(self):
+        # This subroutine will update the password for the user
+
+        user = h.user() # gets the users object
+
+        # getsthe old, new, and the retyped new passowrd
+        new_pwd = request.params['pwd_new']
+        old_pwd = request.params['pwd_old']
+        new_pwd_re = request.params['pwd_new_re']
+
+        # test to see if they've entered the correct old passwrd
+        if user.validate_password(old_pwd):
+
+            # test to see if they've netered the new password in correctly
+            if new_pwd == new_pwd_re:
+            # update the user with the new password
+                user.set_password(new_pwd)
+                Session.commit()
+                h.flash_ok(u"Your password has changed.")
+            else:
+             h.flash_alert(u"Password change failed.")
+        else:
+            h.flash_alert(u"Password change failed.")
+
+        c.user = user
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+        return render("/home.mako")

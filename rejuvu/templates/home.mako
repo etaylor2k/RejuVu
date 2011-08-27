@@ -6,6 +6,7 @@
                 	<div class="lefttop"><img src="/images/personal-info.png" /></div>
                     <div class="leftmiddle">
                     <center><form><table width="93%" cellspacing="0">
+  ${h.flash.render("flash_container")|n}
   <tr>
     <td width="50%">Name</td>
     <td width="50%">&nbsp;</td>
@@ -81,14 +82,14 @@
                 <div class="contentright" style="padding-top:10px">
                 	<div class="righttop"><img src="/images/change-password.png" /></div>
                     <div class="rightmiddle" style="padding-top:20px">
-                    <center><form>
+                    <center><form action="/account/updatePassword" method="POST">
                     <table width="100%" cellspacing="0">
   <tr>
     <td>Old Password</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+    <td colspan="2"><input name="pwd_old" type="password" value="" size="32" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -98,7 +99,7 @@
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+    <td colspan="2"><input name="pwd_new" type="password" value="" size="32" /></td>
   </tr>
   <tr>
     <td colspan="2" height="3px"></td>
@@ -107,13 +108,13 @@
     <td colspan="2">Re-enter New Password</td>
   </tr>
   <tr>
-    <td colspan="2"><input name="name" type="password" value="" size="32" /></td>
+    <td colspan="2"><input name="pwd_new_re" type="password" value="" size="32" /></td>
   </tr>
   <tr>
     <td colspan="2" height="14"></td>
   </tr>
   <tr>
-    <td width="47%"><input name="submit2" type="submit" value="Submit Changes" /></td>
+    <td width="47%"><input type="submit" value="Submit Changes" /></td>
     <td>&nbsp;</td>
   </tr>
 </table>
