@@ -18,6 +18,8 @@ CAME_FROM_EXCLUDE = (
     '/account/activation',
 )
 
+CAME_FROM_REGISTER =('/account/register',)
+
 log = logging.getLogger(__name__)
 
 register_user_form = RegisterUserForm(
@@ -75,7 +77,7 @@ class AccountController(BaseController):
                 )
                 
                 from turbomail import Message
-                message = Message("from@example.com", user.email, "Welcome to RejuVu")
+                message = Message("noreply@rejuvu.com", user.email, "Welcome to RejuVu")
                 message.plain = "Your RejuVu account is ready to use. Your username is '%s'.  Activate your account at %s" %(user.username, activation_url)
                 message.send()
                 Session.commit()
@@ -119,3 +121,29 @@ class AccountController(BaseController):
 
         c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
         return render('home.mako')
+    
+    def forgot(self):
+        # render the forgot password screen
+        return render('/account/forgot.mako')
+
+    def doReset(self):
+        # This is the form where the user will go once they have submitted their email address for thier password to be reset
+        # This will e-mail a randomly generated password to the user
+        email = request.params['user_email']
+
+        # This will return the users object 
+        u = Session.query(Users).filter_by(email=email)
+        for user in u:
+            temp_password = h.gen_pwd()
+            from turbomail import Message
+            message = Message("noreply@rejuvu.com", user.email, "Password Reset")
+            message.plain = "Your new RejuVu password is '%s'. Your username is '%s'." %(temp_password, user.username)
+            message.send()
+            user.set_password(temp_password)
+            Session.commit()
+            h.flash_info(u"An email has been sent to %s containing a new password for your account." %(user.email,))
+            redirect(url('/'))
+        else:
+            h.flash_info("Error - Sorry no such account exists or registered")
+
+        return render('/index.mako')

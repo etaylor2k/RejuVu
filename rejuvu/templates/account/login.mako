@@ -37,6 +37,12 @@
     <td><input type="submit" value="Login" /></td>
     <td>&nbsp;</td>
   </tr>
+  <tr>
+    <td>
+        <a href="/account/register">Register</a><font color="#FF6600">
+            |</font> <a href="/account/forgot">Forgot Password</a>
+   </td>
+</tr>
 </table>
 </form></div>
 
