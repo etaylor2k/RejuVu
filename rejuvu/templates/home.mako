@@ -5,7 +5,7 @@
 <div class="contentleft" style="padding-top:30px">
                 	<div class="lefttop"><img src="/images/personal-info.png" /></div>
                     <div class="leftmiddle">
-                    <center><form><table width="93%" cellspacing="0">
+                    <center><form action="/account/updateUserInfo" method="POST"><table width="93%" cellspacing="0">
   ${h.flash.render("flash_container")|n}
   <tr>
     <td width="50%">Name</td>
