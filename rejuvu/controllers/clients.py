@@ -4,13 +4,18 @@ from pylons import request, response, session, tmpl_context as c, url
 from pylons.controllers.util import abort, redirect
 
 from rejuvu.lib.base import BaseController, render
+from rejuvu.lib import helpers as h
+from rejuvu.model import Users, UserLevels, Debtors, UserDebtors
+from rejuvu.model.meta import Session
 
 log = logging.getLogger(__name__)
 
 class ClientsController(BaseController):
 
     def index(self):
-        # Return a rendered template
-        #return render('/clients.mako')
-        # or, return a string
-        return 'Hello World'
+        # The default page for the client tab
+
+        c.user = h.user()
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+        
+        return render('/client/client.mako')

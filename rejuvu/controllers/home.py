@@ -5,6 +5,8 @@ from pylons.controllers.util import abort, redirect
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
+from rejuvu.model.meta import Session
+from rejuvu.model import Users, UserLevels
 
 log = logging.getLogger(__name__)
 
@@ -21,6 +23,8 @@ class HomeController(BaseController):
         if c.user is None:
             return render('/account/login.mako')
         
+        else:
+            c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
         return render('/home.mako')
 
     
