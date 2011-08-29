@@ -36,5 +36,5 @@
           	</div>
             <div class="nav"><a href="/"><img src="/images/user.jpg" alt="User" name="user" id="user" onmouseover="MM_swapImage('user','','/images/user-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0"/></a></div>
           <div class="nav"><a href="/client/client.mako"><img src="/images/client-ovr.jpg" alt="Client" name="client" id="client" border="0" /></a></div>
-            <div class="nav"><a href="reports.html"><img src="/images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','/images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
+            <div class="nav"><a href="/reports/index"><img src="/images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','/images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
             <div>
