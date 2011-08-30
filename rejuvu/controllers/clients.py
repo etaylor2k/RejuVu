@@ -5,7 +5,7 @@ from pylons.controllers.util import abort, redirect
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
-from rejuvu.model import Users, UserLevels, Debtors, UserDebtors
+from rejuvu.model import Users, UserLevels, Debtors, UserDebtors, Clients
 from rejuvu.model.meta import Session
 
 log = logging.getLogger(__name__)
@@ -42,6 +42,29 @@ class ClientsController(BaseController):
         return render('/client/new.mako')
 
     def create(self):
+        # This subrotuine will create the client
 
-        return 'hello'
+        # This will get the parameter from the form
+        clientname =request.params['name']
+
+        # query the database for a client with that name
+        client =Session.query(Clients).filter(Clients.name ==clientname).first()
+
+        if client == None:
+            # There was not a client in the database with that name
+
+            new_client = Clients(name = clientname) # create the new object
+            Session.add(new_client) # add the new object to the session
+            Session.commit() # commit the addition
+
+            h.flash_ok(u"The client '%s' was created" %(clientname))
+
+        else:
+            # There is a client in the database with that name
+            h.flash_alert(u"The client '%s' is already on file." %(clientname))
+
+
+        c.user =h.user()
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+        return render('/home.mako')
 
