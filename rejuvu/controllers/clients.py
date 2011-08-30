@@ -17,5 +17,31 @@ class ClientsController(BaseController):
 
         c.user = h.user()
         c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+
+        # Debtors should not have access to this menu
+        if (c.user_level.name == 'Debtor'):
+            # Alert the user
+            h.flash_alert(u"Debtors do not have access to this menu.")
+
+            # Redirect the user to the
+            return render('/')
         
         return render('/client/client.mako')
+
+    def new(self):
+        # This subroutine will render the new form to create a client
+
+        # double check that user's level
+        c.user = h.user()
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+
+        if (c.user_level.name != "Super User"):
+            h.flash_alert(u"You do not have access to this function.")
+            return render ('/')
+
+        return render('/client/new.mako')
+
+    def create(self):
+
+        return 'hello'
+

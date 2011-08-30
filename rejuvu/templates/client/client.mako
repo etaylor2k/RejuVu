@@ -11,13 +11,21 @@
                 </div>
                     <div class="contentright"><img src="/images/pic.jpg" align="right" /></div>
                 <div class="contentright" style="padding-top:10px">
-                	<div class="admintop"><img src="/images/admin.png" /></div>
+                	<div class="admintop">${c.user_level.name}<!--img src="/images/admin.png" /--></div>
                     <div class="adminmiddle">
+${h.flash.render("flash_container")|n}
                     <form>
                     <table width="100%" border="0" cellspacing="20" cellpadding="0">
   <tr>
     <td height="40">&nbsp;</td>
   </tr>
+  ## Test for Super Users to create a client
+  % if c.user_level.name == "Super User":
+    <tr>
+        <td align="center"><input name="Create Client" type="button" value="Create Client" onclick="document.location.href='/clients/new';" style="width:115px" /></td>
+    </tr>
+
+  % endif
   <tr>
     <td align="center"><input name="upload" type="button" value="Upload Data" style="width:115px" /></td>
   </tr>
@@ -35,6 +43,6 @@
                 <div class="clear"></div>
           	</div>
             <div class="nav"><a href="/"><img src="/images/user.jpg" alt="User" name="user" id="user" onmouseover="MM_swapImage('user','','/images/user-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0"/></a></div>
-          <div class="nav"><a href="/client/client.mako"><img src="/images/client-ovr.jpg" alt="Client" name="client" id="client" border="0" /></a></div>
+          <div class="nav"><a href="/clients/index"><img src="/images/client-ovr.jpg" alt="Client" name="client" id="client" border="0" /></a></div>
             <div class="nav"><a href="/reports/index"><img src="/images/reports.jpg" alt="Reports" name="reports" id="reports" onmouseover="MM_swapImage('reports','','/images/reports-ovr.jpg',1)" onmouseout="MM_swapImgRestore()" border="0" /></a></div>
             <div>
