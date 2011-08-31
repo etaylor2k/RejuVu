@@ -10,7 +10,7 @@ import tw.forms
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
-from rejuvu.model import Users, UserLevels
+from rejuvu.model import Users, UserLevels, Clients
 from rejuvu.model.forms.build import RegisterUserForm
 from rejuvu.model.meta import Session
 
@@ -49,8 +49,12 @@ class AccountController(BaseController):
         
         return render('/account/login.mako')
     
-    def register(self, userlevel):
+    def register(self, userlevel =''):
+        # This is the subroutine/ method for registering users/ DEBTORS
+
         if request.method == 'POST':
+            # If we have came from the register form
+
             state = State()
             state.session = Session
             try:
@@ -60,7 +64,7 @@ class AccountController(BaseController):
             else:
                 # Create the new account in database
                 if userlevel =="":
-                    userlevel =1
+                    userlevel =4 # Default to Debtors
                 users = Users(
                     username = params['user_name'],
                     email = params['email_address'],
@@ -91,7 +95,10 @@ class AccountController(BaseController):
                 redirect(url('/'))
         
         c.register_user_form = register_user_form
-        
+
+        # Get the clients that the DEBTORS can register for
+        c.clients = Session.query(Clients).all()
+
         return render('/account/register.mako')
 
     def activation(self):

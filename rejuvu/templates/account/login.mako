@@ -39,7 +39,7 @@
   </tr>
   <tr>
     <td>
-        <a href="/account/register">Register</a><font color="#FF6600">
+        <a href="/account/register/4">Register</a><font color="#FF6600">
             |</font> <a href="/account/forgot">Forgot Password</a>
    </td>
 </tr>

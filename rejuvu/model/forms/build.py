@@ -80,8 +80,8 @@ class RegisterUserForm(tw.forms.TableForm):
         )
         
         display_name = tw.forms.TextField(
-            label_text = 'Display Name',
-            # help_text = 'The name you want displayed throughout the site',
+            label_text = 'Name',
+            # help_text = 'Your Full Name',
             required = True,
             css_classes = ['form-text'],
             attrs = {
