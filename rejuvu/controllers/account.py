@@ -223,6 +223,10 @@ class AccountController(BaseController):
                     Session.commit()
                     changed =True
 
+                else:
+                # The use name is not unique
+                    h.flash_alert(u"Username already taken.")
+
              # Test to see if the address changed
             if (new_address != '') and (new_city !='') and (new_state != '') and (new_zip != '') and (error ==False) and (g.geocode(new_address+ ' ' + new_city +', '+ new_state+' '+ new_zip).valid_address !=False):
                  # There are not any empty address fields and the address is valid
@@ -231,30 +235,35 @@ class AccountController(BaseController):
                  if (c.user.address != new_address):
                      # address change
                      c.user.address =new_address
+                     Session.commit()
                      if changed != True: changed =True
 
                  if (c.user.city != new_city):
                      # new city
                      c.user.city =new_city
+                     Session.commit()
                      if changed != True: changed =True
 
                  if (c.user.state != new_state):
                      # new state
                      c.user.state =new_state
+                     Session.commit()
                      if changed != True: changed =True
 
                  if (c.user.zip != new_zip):
                      # new zip code
                      c.user.zip =new_zip
+                     Session.commit()
                      if changed != True: changed =True
 
             elif (c.user.address == new_address) and (c.user.state == new_state) and (c.user.city == new_city) and (c.user.zp ==new_zip):
-                # If everythin in the form address wise has not been changed then there is nothing that needs to be done
+                # If everything in the form address wise has not been changed then there is nothing that needs to be done
                 pass
 
             else:
+                # The address was bad
                 error = True
-
+                h.flash_alert(u"Improper Address.")
 
             if changed ==True and error ==False:
                 h.flash_ok(u"Your user account is updated.")
