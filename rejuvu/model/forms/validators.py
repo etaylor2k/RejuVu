@@ -2,6 +2,7 @@
 
 '''validators
 '''
+import formencode.validators
 
 __author__ = 'Chris Miles'
 __copyright__ = '(c) Chris Miles 2009. All rights reserved.'
@@ -21,7 +22,7 @@ from formencode.compound import All, Any
 #   these validators can be used outside of a ToscaWidgets environment.
 # import tw.forms
 
-from rejuvu.model import Users, USERNAME_SIZE
+from rejuvu.model import Users, USERNAME_SIZE, Clients
 
 
 USERNAME_MIN_LENGTH=4
@@ -86,6 +87,39 @@ class UniqueEmail(formencode.FancyValidator):
             # This means a Session object wasn't passed in as the "state".
             raise ValueError("state object needs session attribute", value, state)
 
+class UniqueClient(formencode.FancyValidator):
+    """Validate that the value is a unique client Name (i.e. the client
+    does not already exist in the database).
+
+    Requires an object to be passed in as ``state`` that contains a
+    ``session`` attribute pointing to a SQLAlchemy Session object.
+    The validator uses the Session object to access the database.
+    """
+
+    messages = {
+        'client_taken': 'Client already taken',
+    }
+
+    def validate_python(self, value, state):
+        """``state`` should be an object containing a ``session``
+        attribute, referencing an SQLAlchemy Session object
+        that can be used to access the database.
+        """
+        if state is not None and hasattr(state, 'session'):
+
+            # This will get the list of all of the Clients
+            clients =[]
+            cli = state.session.query(Clients).all()
+            
+            for x in range(len(cli)):
+                # turn all of the elements into lower case
+                clients.append(cli[x].name.lower())
+
+            if value.lower() in clients:
+                raise formencode.Invalid(self.message("client_taken", state), value, state)
+        else:
+            # This means a Session object wasn't passed in as the "state".
+            raise ValueError("state object needs session attribute", value, state)
 
 # - Valid username validator -
 class ValidUsername(formencode.FancyValidator):
@@ -188,6 +222,11 @@ class UserValidators(object):
     password = All(
         formencode.validators.String(not_empty=True),
         SecurePassword()
+    )
+
+    client_name = All(
+        formencode.validators.String(not_empty=True),
+        UniqueClient()
     )
     
     activated = formencode.validators.StringBool()

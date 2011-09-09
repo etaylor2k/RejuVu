@@ -4,6 +4,7 @@
 
             <center><div class="topbar"></div>
                 <div class="title" style="width:125px;"><em>${c.user.name}</em></div></center>
+
             	<div class="contentleft" style="padding-top:30px">
                 	<div class="left" style="padding-top:40px;"><img src="/images/pie-chart.png" width="212" height="219" />
                     <div style="margin-top:10px">Snapshot Statistics</div>
@@ -13,7 +14,6 @@
                 <div class="contentright" style="padding-top:10px">
                 	<div class="admintop">${c.user_level.name}<!--img src="/images/admin.png" /--></div>
                     <div class="adminmiddle">
-${h.flash.render("flash_container")|n}
                     <form>
                     <table width="100%" border="0" cellspacing="20" cellpadding="0">
   <tr>

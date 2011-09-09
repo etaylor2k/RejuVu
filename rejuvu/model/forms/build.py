@@ -182,3 +182,25 @@ class RegisterUserForm(tw.forms.TableForm):
         #     )
     
 
+class NewClientForm(tw.forms.TableForm):
+    template = "rejuvu.templates.forms.new-client"
+    # hover_help = True
+
+    class fields(WidgetsList):
+        client_name = tw.forms.TextField(
+            label_text = 'Client Name',
+            # help_text = '',
+            required = True,
+            css_classes = ['form-text'],
+            attrs = {
+                'maxlength': "16",
+                'size': "30",
+            },
+            validator = UserValidators.client_name
+        )
+
+    # allow adding js calls dynamically for a request
+    include_dynamic_js_calls = True
+
+    css = [css]
+    javascript = [functions]

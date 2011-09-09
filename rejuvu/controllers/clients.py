@@ -5,10 +5,25 @@ from pylons.controllers.util import abort, redirect
 
 from rejuvu.lib.base import BaseController, render
 from rejuvu.lib import helpers as h
-from rejuvu.model import Users, UserLevels, Debtors, UserDebtors
+from rejuvu.model import Users, UserLevels, Debtors, UserDebtors, Clients
 from rejuvu.model.meta import Session
 
+from rejuvu.model.forms.build import NewClientForm
+
+import tw.forms
+
 log = logging.getLogger(__name__)
+
+new_client_form = NewClientForm(
+    'new_client',
+    # action=url(),
+    # method="post",
+)
+
+
+class State(object):
+    """A container for passing state to validators.
+    """
 
 class ClientsController(BaseController):
 
@@ -34,14 +49,44 @@ class ClientsController(BaseController):
         # double check that user's level
         c.user = h.user()
         c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+    
+        if request.method == 'POST':
+            state = State()
+            state.session = Session
+            try:
+                params = new_client_form.validate(request.params, state=state)
+            except tw.forms.core.Invalid, e:
+                c.form_error = e.error_dict or {}
+            else:
+                pass
 
-        if (c.user_level.name != "Super User"):
-            h.flash_alert(u"You do not have access to this function.")
-            return render ('/')
-
+        c.new_client_form = new_client_form
         return render('/client/new.mako')
 
     def create(self):
+        # This subroutine will create a new client for the user
 
-        return 'hello'
+        name = request.params['client_name'] # gets the
+
+        c.user = h.user()
+        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
+
+        if name == None:
+        # The user did not enter anything
+            return render('/client/client.mako')
+        
+        onFile = Session.query(Clients).filter(Clients.name ==name).first()
+
+        if onFile is not None:
+        # This is a unique client
+            client =Clients(name)
+            Session.add(client)
+            Session.commit()
+            h.flash_ok(u"Client %s Created" %(name))
+
+        else:
+        # The client already exists
+            h.flash_alert(u"Client %s already exists" %(name))
+        
+        return render('/home.mako')
 
