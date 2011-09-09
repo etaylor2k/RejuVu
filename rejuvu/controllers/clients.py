@@ -58,35 +58,14 @@ class ClientsController(BaseController):
             except tw.forms.core.Invalid, e:
                 c.form_error = e.error_dict or {}
             else:
-                pass
+                # If the client passes all of the scrutiny
+
+                clientname = params['client_name']
+                client =Clients(name = clientname)
+                Session.add(client)
+                Session.commit()
+                h.flash_ok(u"Client %s Created" %(clientname))
+                return render('/home.mako')
 
         c.new_client_form = new_client_form
         return render('/client/new.mako')
-
-    def create(self):
-        # This subroutine will create a new client for the user
-
-        name = request.params['client_name'] # gets the
-
-        c.user = h.user()
-        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
-
-        if name == None:
-        # The user did not enter anything
-            return render('/client/client.mako')
-        
-        onFile = Session.query(Clients).filter(Clients.name ==name).first()
-
-        if onFile is not None:
-        # This is a unique client
-            client =Clients(name)
-            Session.add(client)
-            Session.commit()
-            h.flash_ok(u"Client %s Created" %(name))
-
-        else:
-        # The client already exists
-            h.flash_alert(u"Client %s already exists" %(name))
-        
-        return render('/home.mako')
-
