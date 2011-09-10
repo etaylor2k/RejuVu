@@ -69,34 +69,3 @@ class ClientsController(BaseController):
 
         c.new_client_form = new_client_form
         return render('/client/new.mako')
-<<<<<<< HEAD
-=======
-
-    def create(self):
-        # This subrotuine will create the client
-
-        # This will get the parameter from the form
-        clientname =request.params['name']
-
-        # query the database for a client with that name
-        client =Session.query(Clients).filter(Clients.name ==clientname).first()
-
-        if client == None:
-            # There was not a client in the database with that name
-
-            new_client = Clients(name = clientname) # create the new object
-            Session.add(new_client) # add the new object to the session
-            Session.commit() # commit the addition
-
-            h.flash_ok(u"The client '%s' was created" %(clientname))
-
-        else:
-            # There is a client in the database with that name
-            h.flash_alert(u"The client '%s' is already on file." %(clientname))
-
-
-        c.user =h.user()
-        c.user_level = Session.query(UserLevels).filter(UserLevels.ulid==c.user.level).first()
-        return render('/home.mako')
-
->>>>>>> d81c52a691f6ce33cf473aa0559af6d8523ae322
