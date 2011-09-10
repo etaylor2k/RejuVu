@@ -111,9 +111,9 @@ class UniqueClient(formencode.FancyValidator):
             clients =[]
             cli = state.session.query(Clients).all()
             
-            for x in range(len(cli)):
+            for index in range(len(cli)):
                 # turn all of the elements into lower case
-                clients.append(cli[x].name.lower())
+                clients.append(cli[index].name.lower())
 
             if value.lower() in clients:
                 raise formencode.Invalid(self.message("client_taken", state), value, state)
