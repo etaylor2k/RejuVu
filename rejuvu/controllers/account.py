@@ -276,4 +276,10 @@ class AccountController(BaseController):
                 h.flash_ok(u"Your user account is updated.")
                 
             return render('/home.mako')
+    
+    def list(self):
+        # This subroutine will let the user perform actions on accounts with respect to thier user level
+        c.user = h.user()
+        c.user_level =h.userLevel()
 
+        return c.user_level.name

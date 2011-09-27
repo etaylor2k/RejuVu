@@ -17,6 +17,9 @@ from webflash import Flash
 #   Use the flash_ok(), flash_info() & flash_alert() convenience
 #   functions to flash messages.
 
+from rejuvu.model.meta import Session
+from rejuvu.model import UserLevels
+
 flash = Flash(
     get_response=lambda: response,
     get_request=lambda: request
@@ -43,4 +46,16 @@ def user():
     else:
         user = None
     return user
+
+def userLevel():
+    """This subroutine will return the user's level object. Since that is needed in a few places
+    creating a helper function for this saves us from having to do a SQL call every time """
+
+    thisuser = user() # get the current user
+    userlevel = Session.query(UserLevels).filter(UserLevels.ulid==thisuser.level).first()
+
+    if userlevel is None:
+        userlevel = None
+
+    return userlevel
 

@@ -30,7 +30,7 @@
     <td align="center"><input name="upload" type="button" value="Upload Data" style="width:115px" /></td>
   </tr>
   <tr>
-    <td align="center"><input name="account" type="button" value="Account CRUD" style="width:115px" /></td>
+    <td align="center"><input name="account" type="button" value="Accounts" onclick="document.location.href='/account/list';" style="width:115px" /></td>
   </tr>
   <tr>
     <td align="center"><input name="search" type="button" value="Search Accounts" style="width:115px" /></td>
