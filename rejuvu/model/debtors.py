@@ -1,5 +1,4 @@
 from sqlalchemy import Column, ForeignKey
-from sqlalchemy.types import String, Text
 from sqlalchemy.dialects.postgresql import *
 from sqlalchemy.orm import relation
 

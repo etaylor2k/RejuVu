@@ -14,7 +14,7 @@ class UserDebtors(Base):
     __tablename__ ="user_debtors"
 
     #Class attributes reporesenting columns from the users table
-    user_debtor_id = Column('ser_debtor_id', INTEGER, primary_key=True)
+    user_debtor_id = Column('user_debtor_id', INTEGER, primary_key=True)
 
     user = Column(INTEGER, ForeignKey('users.uid'))
     users = relation('Users')
